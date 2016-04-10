@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minWidth="892.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fraas.prepregdatatracker.ui.controller.ParameterController">
+   <children>
+      <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Materialien">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Faserhalbzeug:" />
+                                          <TextField fx:id="tfFaserhalbzeug" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Harzsystem:" />
+                                          <TextField fx:id="tfHarzsystem" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Trägermaterial:" />
+                                          <TextField fx:id="tfTrägermaterial" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Kaschiermaterial:" />
+                                          <TextField fx:id="tfKaschiermaterial" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Anlagenparameter">
+            <content>
+              <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Spalthöhe:" />
+                                          <TextField fx:id="tfSpalthöhe" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Anlagengeschwindigkeit:" />
+                                          <TextField fx:id="tfAnlagengeschwindigkeit" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Verfahren:" />
+                                          <TextField fx:id="tfVerfahren" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Bahnverlauf:" />
+                                          <TextField fx:id="tfBahnverlauf" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Temperaturen">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Auftrag:" />
+                                          <TextField fx:id="tfAuftrag" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Kalander:" />
+                                          <TextField fx:id="tfKalander" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Tisch 1:" />
+                                          <TextField fx:id="tfTisch1" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Tisch 2:" />
+                                          <TextField fx:id="tfTisch2" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="118.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Kühlplatte:" />
+                                          <TextField fx:id="tfKühlplatte" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="154.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="IR Status:" />
+                                          <TextField fx:id="tfIrStatus" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Zugspannungen">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Beschichtung:" />
+                                          <TextField fx:id="tfBeschichtung" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Zugwalze:" />
+                                          <TextField fx:id="tfZugwalze" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Gewebe oben:" />
+                                          <TextField fx:id="tfGewebeOben" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Deckpapier oben:" />
+                                          <TextField fx:id="tfDeckpapierOben" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="118.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Deckpapier unten:" />
+                                          <TextField fx:id="tfDeckpapierUnten" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="154.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Aufwickler (Deckpapier):" />
+                                          <TextField fx:id="tfAufwicklerD" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="190.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Aufwickler (Prepreg):" />
+                                          <TextField fx:id="tfAufwicklerP" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="226.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Fadenspannung:" />
+                                          <TextField fx:id="tfFadenspannung" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Kalander">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Drehmoment:" />
+                                          <TextField fx:id="tfDrehmoment" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Drehzahl (geregelt):" />
+                                          <TextField fx:id="tfDrehzahl" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Druck Kalander:" />
+                                          <TextField fx:id="tfDruckKalender" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Spalt Anzeige Kalander A:" />
+                                          <TextField fx:id="tfSpaltA" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="118.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Spalt Anzeige Kalander B" />
+                                          <TextField fx:id="tfSpaltB" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Zugstation">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Druck Zugstation:" />
+                                          <TextField fx:id="tfDruckZugstation" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Spalt Zugstation A:" />
+                                          <TextField fx:id="tfSpaltZugA" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Spalt Zugstation B:" />
+                                          <TextField fx:id="tfSpaltZugB" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Aufwickler">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Taper Deckpapier:" />
+                                          <TextField fx:id="tfTaperDeckpapier" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Taper Prepreg:" />
+                                          <TextField fx:id="tfTaperPrepreg" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Prepregeigenschaften">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="app. Flächengewicht:" />
+                                          <TextField fx:id="tfFlächengewicht" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Harzgehalt:" />
+                                          <TextField fx:id="tfHarzgehalt" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="46.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Prepregbreite:" />
+                                          <TextField fx:id="tfPrepregbreite" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="82.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="160.0" text="Laufmeter:" />
+                                          <TextField fx:id="tfLaufmeter" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

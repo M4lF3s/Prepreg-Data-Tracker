@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-1">
+        <createTable catalogName="APP" tableName="PERSON">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="SQL160310144756220"/>
+            </column>
+            <column name="NACHNAME" type="VARCHAR(255)"/>
+            <column name="VORNAME" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-2">
+        <createTable catalogName="APP" tableName="VERSUCH">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="SQL160310144756280"/>
+            </column>
+            <column name="VERSUCHSNUMMER" type="INTEGER"/>
+            <column name="VRID" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-3">
+        <createTable catalogName="APP" tableName="VERSUCHSREIHE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="SQL160310144756290"/>
+            </column>
+            <column name="DATUM" type="TIMESTAMP"/>
+            <column name="VERSUCHSANLAGE" type="VARCHAR(255)"/>
+            <column name="PE_ID" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-4">
+        <createTable catalogName="APP" tableName="PARAMETER_VERSUCHE">
+            <column name="PARAMETER" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSUCHE" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-5">
+        <createTable catalogName="APP" tableName="TEMPERATUREN">
+            <column name="IR_STATUS" type="SMALLINT"/>
+            <column name="AUTRAG" type="DOUBLE"/>
+            <column name="KALANDER" type="DOUBLE"/>
+            <column name="KÜHLPLATTE" type="DOUBLE"/>
+            <column name="TISCH_1" type="DOUBLE"/>
+            <column name="TISCH_2" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-6">
+        <createTable catalogName="APP" tableName="ZUGSPANNUNGEN">
+            <column name="AUFWICKLER_DECKPAPIER" type="DOUBLE"/>
+            <column name="AUFWICKLER_PRE_PREG" type="DOUBLE"/>
+            <column name="BESCHICHTUNG" type="DOUBLE"/>
+            <column name="DECKPAPIER_OBEN" type="DOUBLE"/>
+            <column name="DECKPAPIER_UNTEN" type="DOUBLE"/>
+            <column name="FADENSPANNUNG" type="DOUBLE"/>
+            <column name="GEWEBE_OBEN" type="DOUBLE"/>
+            <column name="ZUGWALZE" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-7">
+        <createTable catalogName="APP" tableName="MATERIALIEN">
+            <column name="FASERHALBZEUG" type="VARCHAR(255)"/>
+            <column name="HARZSYSTEM" type="VARCHAR(255)"/>
+            <column name="KASCHIERMATERIAL" type="VARCHAR(255)"/>
+            <column name="TRÄGERMATERIAL" type="VARCHAR(255)"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-8">
+        <createTable catalogName="APP" tableName="AUFWICKLER">
+            <column name="TAPER_DECKPAPIER" type="DOUBLE"/>
+            <column name="TAPER_PRE_PREG" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-9">
+        <createTable catalogName="APP" tableName="ANLAGENPARAMETER">
+            <column name="ANLAGENGESCHWINDIGKEIT" type="DOUBLE"/>
+            <column name="BAHNVERLAUF" type="VARCHAR(255)"/>
+            <column name="SPALTHÖHE" type="DOUBLE"/>
+            <column name="VERFAHREN" type="VARCHAR(255)"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-10">
+        <createTable catalogName="APP" tableName="KALANDER">
+            <column name="DREHMOMHENT" type="DOUBLE"/>
+            <column name="DREHZAHL" type="DOUBLE"/>
+            <column name="DRUCK_KALANDER" type="DOUBLE"/>
+            <column name="SPALT_A" type="DOUBLE"/>
+            <column name="SPALT_B" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-11">
+        <createTable catalogName="APP" tableName="PREPREG_EIGENSCHAFTEN">
+            <column name="FLÄCHENGEWICHT" type="DOUBLE"/>
+            <column name="HARZGEHALT" type="DOUBLE"/>
+            <column name="LAUFMETER" type="DOUBLE"/>
+            <column name="PREPREGBREITE" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-12">
+        <createTable catalogName="APP" tableName="ZUGSTATION">
+            <column name="DRUCK_ZUGSTATION" type="DOUBLE"/>
+            <column name="SPALT_ZUGSTATION_A" type="DOUBLE"/>
+            <column name="SPALT_ZUGSTATION_B" type="DOUBLE"/>
+            <column name="PARAMETER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-13">
+        <createTable catalogName="APP" tableName="PARAMETER">
+            <column autoIncrement="true" name="PARAMETER_ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="SQL160310144756180"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-14">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756160" tableName="MATERIALIEN"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-15">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756300" tableName="ZUGSPANNUNGEN"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-16">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER, VERSUCHE" constraintName="SQL160310144756210" tableName="PARAMETER_VERSUCHE"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-17">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756120" tableName="AUFWICKLER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-18">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756140" tableName="KALANDER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-19">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756260" tableName="TEMPERATUREN"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-20">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756320" tableName="ZUGSTATION"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-21">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756240" tableName="PREPREG_EIGENSCHAFTEN"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-22">
+        <addPrimaryKey catalogName="APP" columnNames="PARAMETER_ID" constraintName="SQL160310144756010" tableName="ANLAGENPARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-23">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER" baseTableCatalogName="APP" baseTableName="PARAMETER_VERSUCHE" constraintName="FK_BU1W117OMP447XXJ38JAHO5U" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-24">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="TEMPERATUREN" constraintName="FK_MP53432BWO2G2FBE176GOW72Y" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-25">
+        <addForeignKeyConstraint baseColumnNames="VERSUCHE" baseTableCatalogName="APP" baseTableName="PARAMETER_VERSUCHE" constraintName="FK_MLBYIMPC0UTD9OILPP6S5TQRU" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableCatalogName="APP" referencedTableName="VERSUCH"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-26">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="ZUGSPANNUNGEN" constraintName="FK_OIU4AECQG9UAJJX0V2TI3IO9C" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-27">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="AUFWICKLER" constraintName="FK_D7A8LI8AF33J5U0OSE4AN4B9E" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-28">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="MATERIALIEN" constraintName="FK_SQBW3R8M4VJV6CRW74521K87C" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-29">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="ANLAGENPARAMETER" constraintName="FK_EUVXC49EQ2515BRQWPXC3DQJ9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-30">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="KALANDER" constraintName="FK_8KBO0S4SN82RAL0FRX5MJR9EX" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-31">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="ZUGSTATION" constraintName="FK_RY6R0GY61V4ARXEH558UTVNXH" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-32">
+        <addForeignKeyConstraint baseColumnNames="PARAMETER_ID" baseTableCatalogName="APP" baseTableName="PREPREG_EIGENSCHAFTEN" constraintName="FK_NYOQF2BM09OIJGHOQ0LFKHG9T" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PARAMETER_ID" referencedTableCatalogName="APP" referencedTableName="PARAMETER"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-33">
+        <addForeignKeyConstraint baseColumnNames="VRID" baseTableCatalogName="APP" baseTableName="VERSUCH" constraintName="FK_TKC7SE5AHNQCYB1H83CAWTKQ6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableCatalogName="APP" referencedTableName="VERSUCHSREIHE"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-34">
+        <addForeignKeyConstraint baseColumnNames="PE_ID" baseTableCatalogName="APP" baseTableName="VERSUCHSREIHE" constraintName="FK_CJ6R7UF3UVRHM9J2BCU54IEQ" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableCatalogName="APP" referencedTableName="PERSON"/>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-35">
+        <createIndex catalogName="APP" indexName="SQL160310144756480" tableName="PARAMETER_VERSUCHE" unique="false">
+            <column name="PARAMETER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-36">
+        <createIndex catalogName="APP" indexName="SQL160310144756520" tableName="VERSUCH" unique="false">
+            <column name="VRID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-37">
+        <createIndex catalogName="APP" indexName="SQL160310144756460" tableName="PARAMETER_VERSUCHE" unique="false">
+            <column name="VERSUCHE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Marcel Fraas (generated)" id="1457618423659-38">
+        <createIndex catalogName="APP" indexName="SQL160310144756530" tableName="VERSUCHSREIHE" unique="false">
+            <column name="PE_ID"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

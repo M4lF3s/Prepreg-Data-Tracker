@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="258.0" prefWidth="1031.0" stylesheets="@../styles/Metro-UI.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fraas.prepregdatatracker.ui.controller.ConnectionController">
+   <children>
+      <Text fill="#e1800b" layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verbindungseinstellungen">
+         <font>
+            <Font name="Helvetica" size="26.0" />
+         </font>
+      </Text>
+      <HBox layoutX="14.0" layoutY="55.0" spacing="10.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="68.0" text="CPU:" />
+            <TextField fx:id="tfCPU" prefHeight="27.0" prefWidth="163.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="100.0" spacing="10.0">
+         <children>
+            <Label prefHeight="27.0" text="Datenbank:" />
+            <TextField fx:id="tfDatabase" prefHeight="27.0" prefWidth="163.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSave" layoutX="14.0" layoutY="148.0" mnemonicParsing="false" onAction="#save" text="Übernehmen" />
+   </children>
+</AnchorPane>

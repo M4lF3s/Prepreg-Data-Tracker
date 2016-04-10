@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1031.0" stylesheets="@../styles/Metro-UI.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fraas.prepregdatatracker.ui.controller.MainWindowController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" pickOnBounds="false" prefHeight="506.0" prefWidth="738.0" snapToPixel="true" style="-fx-border-color: #E1800B; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="resize" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" mouseTransparent="true" onAction="#aksiResize" pickOnBounds="true" prefHeight="10.0" prefWidth="10.0" styleClass="decoration-button-resize" stylesheets="@../styles/winDec.css" text="" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />
+            <AnchorPane layoutX="2.0" layoutY="2.0" prefHeight="613.0" prefWidth="136.0" style="-fx-background-color: #E1800B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ListView fx:id="listMenu" layoutX="-3.0" layoutY="78.0" onMouseClicked="#listMenu" prefHeight="535.0" prefWidth="136.0" stylesheets="@../styles/listView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0" />
+                  <Button fx:id="btnLogout" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../styles/buttonCircle.css" visible="false">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/arrowLeft.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneParent" layoutX="138.0" layoutY="40.0" prefHeight="545.0" prefWidth="891.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
+               <children>
+                  <AnchorPane prefHeight="150.0" prefWidth="892.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="#e1800b" layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prepreg Imprägnierversuche">
+                           <font>
+                              <Font name="Helvetica" size="26.0" />
+                           </font>
+                        </Text>
+                        <VBox layoutX="14.0" layoutY="34.0" spacing="10.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="110.0" text="Anlage:" />
+                                          <TextField fx:id="txtAnlage" disable="true" editable="false" text="EHA Prepreg-Laboranlage Uni Bayreuth" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="110.0" text="Datum:" />
+                                          <TextField fx:id="txtDate" disable="true" editable="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="110.0" text="Protokollführung:" />
+                                          <TextField fx:id="txtPerson" disable="false" editable="true" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="365.0" layoutY="33.0" prefHeight="98.0" prefWidth="163.0" spacing="5.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="16.0" prefWidth="60.0" text="Status:" />
+                                          <Label fx:id="lblConnection" text="Disconnected" textFill="RED" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="16.0" prefWidth="60.0" text="Reader:" />
+                                          <Label fx:id="lblStart" text="Standby" textFill="#ffe300" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane>
+                                 <children>
+                                    <Button fx:id="btnStart" layoutX="16.0" layoutY="1.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="101.0" text="START" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane layoutX="40.0" layoutY="148.0" prefHeight="395.0" prefWidth="892.0" style="-fx-background-color: white;" stylesheets="@../styles/Metro-UI.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+                     <content>
+                        <AnchorPane fx:id="paneData" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="logo" fitHeight="72.0" fitWidth="138.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/pe_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<?import de.fraas.prepregdatatracker.ui.utils.CheckBoxCellFactory?>
+
+<AnchorPane minWidth="892.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fraas.prepregdatatracker.ui.controller.ExportController">
+   <children>
+      <VBox>
+         <children>
+            <AnchorPane>
+               <children>
+                  <TableView fx:id="datatable" editable="true">
+                    <columns>
+                        <TableColumn fx:id="checkBoxTableColumn" editable="true" minWidth="-Infinity" prefWidth="60.0" resizable="false" sortable="false" text="Export">
+                            <cellValueFactory><PropertyValueFactory property="checked" /></cellValueFactory>
+                            <cellFactory><CheckBoxCellFactory /></cellFactory>
+                        </TableColumn>
+                      <TableColumn fx:id="vnr" minWidth="-Infinity" prefWidth="130.0" text="Vers. Nr." />
+                      <TableColumn fx:id="laufmeter" minWidth="-Infinity" prefWidth="130.0" text="Laufmeter" />
+                        <TableColumn fx:id="anlagengeschwindigkeit" minWidth="-Infinity" prefWidth="130.0" text="Anlagengeschw." />
+                        <TableColumn fx:id="spalthöhe" minWidth="-Infinity" prefWidth="130.0" text="Spalthöhe" />
+                        <TableColumn fx:id="tAuftrag" minWidth="-Infinity" prefWidth="130.0" text="Temp. Auftrag" />
+                        <TableColumn fx:id="tKalander" minWidth="-Infinity" prefWidth="130.0" text="Temp. Kalander" />
+                        <TableColumn fx:id="tTisch1" minWidth="-Infinity" prefWidth="130.0" text="Temp. Tisch 1" />
+                        <TableColumn fx:id="tTisch2" minWidth="-Infinity" prefWidth="130.0" text="Temp. Tisch 2" />
+                        <TableColumn fx:id="tKühlplatte" minWidth="-Infinity" prefWidth="130.0" text="Temp. Kühlpl." />
+                        <TableColumn fx:id="irStatus" minWidth="-Infinity" prefWidth="130.0" text="IR Status" />
+                        <TableColumn fx:id="aufwicklerDeckpapier" minWidth="-Infinity" prefWidth="130.0" text="Zug Aufw. Deckp." />
+                        <TableColumn fx:id="aufwicklerPrepreg" minWidth="-Infinity" prefWidth="130.0" text="Zug Aufw. Prepreg" />
+                        <TableColumn fx:id="fadenspannung" minWidth="-Infinity" prefWidth="130.0" text="Zug Fadenspannung" />
+                        <TableColumn fx:id="pKalander" minWidth="-Infinity" prefWidth="130.0" text="Druck Kalander" />
+                        <TableColumn fx:id="pZugstation" minWidth="-Infinity" prefWidth="130.0" text="Druck Zugstation" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <Button fx:id="btnExport" mnemonicParsing="false" onAction="#export" text="Export as .xlsx" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

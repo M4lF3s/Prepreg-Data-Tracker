@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="1031.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fraas.prepregdatatracker.ui.controller.SettingsController">
+   <children>
+      <VBox prefHeight="17.0" prefWidth="1031.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Text fill="#e1800b" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection Settings">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Line endX="1000.0" stroke="#e1800b" strokeWidth="3.0" />
+                        <AnchorPane>
+                           <children>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="26.0" text="CPU IP:" />
+                                    <TextField fx:id="lblIP" />
+                                    <Button mnemonicParsing="false" text="Connect" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Text fill="#e1800b" strokeType="OUTSIDE" strokeWidth="0.0" text="Database Settings">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Line endX="1000.0" stroke="#e1800b" strokeWidth="3.0" />
+                        <AnchorPane>
+                           <children>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="26.0" text="Database Location:" />
+                                    <TextField disable="true" editable="false" />
+                                    <Button mnemonicParsing="false" text="Connect" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets left="14.0" top="20.0" />
+   </padding>
+</AnchorPane>

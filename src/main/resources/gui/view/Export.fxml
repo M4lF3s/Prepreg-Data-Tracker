@@ -19,10 +19,10 @@
                <children>
                   <TableView fx:id="datatable" editable="true">
                     <columns>
-                        <TableColumn fx:id="checkBoxTableColumn" editable="true" minWidth="-Infinity" prefWidth="60.0" resizable="false" sortable="false" text="Export">
+                        <!--TableColumn fx:id="checkBoxTableColumn" editable="true" minWidth="-Infinity" prefWidth="60.0" resizable="false" sortable="false" text="Export">
                             <cellValueFactory><PropertyValueFactory property="checked" /></cellValueFactory>
                             <cellFactory><CheckBoxCellFactory /></cellFactory>
-                        </TableColumn>
+                        </TableColumn-->
                       <TableColumn fx:id="vnr" minWidth="-Infinity" prefWidth="130.0" text="Vers. Nr." />
                       <TableColumn fx:id="laufmeter" minWidth="-Infinity" prefWidth="130.0" text="Laufmeter" />
                         <TableColumn fx:id="anlagengeschwindigkeit" minWidth="-Infinity" prefWidth="130.0" text="Anlagengeschw." />

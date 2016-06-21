@@ -91,7 +91,7 @@ public class MainWindowController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.isRunning = false;
         Platform.runLater(() -> {
-            listMenu.getItems().addAll(" Start", " Parameter", " Export", " Datenbank", " Einstellungen");
+            listMenu.getItems().addAll(" Start", " Parameter", " Export", " Einstellungen");
             listMenu.getSelectionModel().select(0);
             loadAnchorPane(paneData, "Start.fxml");
             txtDate.setText((new Date().toString()));
@@ -155,9 +155,6 @@ public class MainWindowController implements Initializable {
                 loadAnchorPane(paneData, "Export.fxml");
             }break;
             case 3:{
-
-            }break;
-            case 4:{
                 loadAnchorPane(paneData, "Settings.fxml");
             }break;
         }

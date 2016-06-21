@@ -1,6 +1,7 @@
 package de.fraas.prepregdatatracker.services;
 
-import de.fraas.prepregdatatracker.driver.S7Serializer;
+
+import io.rudin.s7connector.bean.S7Serializer;
 import io.rudin.s7connector.exception.S7Exception;
 import io.rudin.s7connector.impl.S7Connector;
 import io.rudin.s7connector.impl.S7TCPConnection;
@@ -15,11 +16,18 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
+ *
  * Created by Marcel Fraas on 01.03.16.
+ *
+ * This class is only for an initial-Check at Application-Launch
+ * to see if there is a S7 CPU available at the given IP.
+ * Should be moved to somewhere else !!
+ *
  */
 
 @Service
@@ -28,10 +36,11 @@ public class ConnectionService {
     @Autowired
     private ConfigurationService configurationService;
 
-    @Autowired
+    private String ip;
+
     private S7Serializer s7Serializer;
 
-    private String ip;
+    private S7Connector c;
 
     private boolean connected = false;
 
@@ -51,17 +60,31 @@ public class ConnectionService {
         this.ip = ip;
     }
 
+    public S7Serializer getS7Serializer() {
+        return s7Serializer;
+    }
+
     @PostConstruct
     public void init(){
         this.ip = configurationService.getIp();
-        connect();
+        //connect();
+        try (
+                S7Connector connector = new S7TCPConnection(this.ip);
+        ) {
+            S7Serializer serializer = new S7Serializer(connector);
+            this.connected = true;
+        } catch (Exception e) {
+            this.connected = false;
+            e.printStackTrace();
+        }
     }
 
-
+    // TODO: This Should be moved;
     public void connect(){
         try{
-            S7Connector c = new S7TCPConnection(ip);
-            s7Serializer.setConnector(c);
+            this.c = new S7TCPConnection(ip);
+            this.s7Serializer = new S7Serializer(c);
+
             this.connected = true;
             //throw new S7Exception();
         } catch (S7Exception e){
@@ -97,5 +120,15 @@ public class ConnectionService {
                 alert.show();
             });
         }
+    }
+
+    public void disconnect() {
+        try {
+            this.c.close();
+            this.connected = false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -2,11 +2,12 @@ package de.fraas.prepregdatatracker.boot.cofiguration;
 
 import de.fraas.prepregdatatracker.data.beans.*;
 import de.fraas.prepregdatatracker.data.repo.PersonRepository;
-import de.fraas.prepregdatatracker.driver.S7Serializer;
+//import de.fraas.prepregdatatracker.driver.S7Serializer;
 import de.fraas.prepregdatatracker.services.ConnectionService;
 import de.fraas.prepregdatatracker.threads.ReaderThread;
 import de.fraas.prepregdatatracker.ui.controller.*;
 import de.fraas.prepregdatatracker.ui.utils.SpringFXMLLoader;
+import io.rudin.s7connector.bean.S7Serializer;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import org.springframework.context.annotation.*;
@@ -41,11 +42,6 @@ public class ApplicationContext {
         ReaderThread r = new ReaderThread();
         r.setDaemon(true);
         return r;
-    }
-
-    @Bean
-    public S7Serializer s7Serializer(){
-        return new S7Serializer();
     }
 
     // -----------------------------

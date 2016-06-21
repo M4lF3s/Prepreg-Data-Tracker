@@ -1,5 +1,6 @@
 package de.fraas.prepregdatatracker.data.beans;
 
+import de.fraas.prepregdatatracker.driver.utils.ObserverManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Field;
@@ -149,68 +150,105 @@ public class DataBean {
     */
 
     public void merge(Anlagenparameter anlagenparameter) {
+        boolean updated = false;
         Field[] fields = anlagenparameter.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(anlagenparameter);
-                if(value != null) {
-                    f.set(this.anlagenparameter, value);
+                Object oldValue = f.get(this.anlagenparameter);
+                Object newValue = f.get(anlagenparameter);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.anlagenparameter, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.anlagenparameter);
         }
     }
 
     public void merge(Aufwickler aufwickler) {
+        boolean updated = false;
         Field[] fields = aufwickler.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(aufwickler);
-                if(value != null) {
-                    f.set(this.aufwickler, value);
+                Object oldValue = f.get(this.aufwickler);
+                Object newValue = f.get(aufwickler);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.aufwickler, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.aufwickler);
         }
     }
 
     public void merge(Kalander kalander) {
+        boolean updated = false;
         Field[] fields = kalander.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(kalander);
-                if(value != null) {
-                    f.set(this.kalander, value);
+                Object oldValue = f.get(this.kalander);
+                Object newValue = f.get(kalander);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.kalander, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.kalander);
         }
     }
 
     public void merge(Materialien materialien) {
+        boolean updated = false;
         Field[] fields = materialien.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(materialien);
-                if(value != null) {
-                    f.set(this.materialien, value);
+                Object oldValue = f.get(this.materialien);
+                Object newValue = f.get(materialien);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.materialien, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.materialien);
+        }
     }
 
     public void merge(Person person) {
+        boolean updated = false;
         Field[] fields = person.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(person);
-                if(value != null) {
-                    f.set(this.person, value);
+                Object oldValue = f.get(this.person);
+                Object newValue = f.get(person);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.person, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -219,86 +257,134 @@ public class DataBean {
     }
 
     public void merge(Prepregeigenschaften prepregeigenschaften) {
+        boolean updated = false;
         Field[] fields = prepregeigenschaften.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(prepregeigenschaften);
-                if(value != null) {
-                    f.set(this.prepregeigenschaften, value);
+                Object oldValue = f.get(this.prepregeigenschaften);
+                Object newValue = f.get(prepregeigenschaften);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.prepregeigenschaften, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.prepregeigenschaften);
         }
     }
 
     public void merge(Temperaturen temperaturen) {
+        boolean updated = false;
         Field[] fields = temperaturen.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(temperaturen);
-                if(value != null) {
-                    f.set(this.temperaturen, value);
+                Object oldValue = f.get(this.temperaturen);
+                Object newValue = f.get(temperaturen);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.temperaturen, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.temperaturen);
         }
     }
 
     public void merge(Versuch versuch) {
+        boolean updated = false;
         Field[] fields = versuch.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(versuch);
-                if(value != null) {
-                    f.set(this.versuch, value);
+                Object oldValue = f.get(this.versuch);
+                Object newValue = f.get(versuch);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.versuch, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.versuch);
         }
     }
 
     public void merge(Versuchsreihe versuchsreihe) {
+        boolean updated = false;
         Field[] fields = versuchsreihe.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(versuchsreihe);
-                if(value != null) {
-                    f.set(this.versuchsreihe, value);
+                Object oldValue = f.get(this.versuchsreihe);
+                Object newValue = f.get(versuchsreihe);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.versuchsreihe, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.versuchsreihe);
         }
     }
 
     public void merge(Zugspannungen zugspannungen) {
+        boolean updated = false;
         Field[] fields = zugspannungen.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(zugspannungen);
-                if(value != null) {
-                    f.set(this.zugspannungen, value);
+                Object oldValue = f.get(this.zugspannungen);
+                Object newValue = f.get(zugspannungen);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.zugspannungen, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.zugspannungen);
+        }
     }
 
     public void merge(Zugstation zugstation) {
+        boolean updated = false;
         Field[] fields = zugstation.getClass().getFields();
         for(Field f : fields) {
             try {
-                Object value = f.get(zugstation);
-                if(value != null) {
-                    f.set(this.zugstation, value);
+                Object oldValue = f.get(this.zugstation);
+                Object newValue = f.get(zugstation);
+                if(newValue != null) {
+                    if(!newValue.equals(oldValue)) {
+                        updated = true;
+                    }
+                    f.set(this.zugstation, newValue);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+        if(updated) {
+            ObserverManager.notifyAllObservers(this.zugstation);
         }
     }
 

@@ -11,9 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * Created by Marcel Fraas on 10.03.16.
@@ -64,7 +63,7 @@ public class PersistenceService implements PropertyChangeObserver {
     private int versuchcount = 1;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         ObserverManager.register(this);
         versuchsreihe.setDatum(new Date());
         personRepository.save(person);
@@ -99,9 +98,17 @@ public class PersistenceService implements PropertyChangeObserver {
     @Override
     public void update(Temperaturen temperaturen) {
         temperaturenInitialized = true;
-        this.temperaturen = new Temperaturen(temperaturen);
-        parameterRepository.save(this.temperaturen);
-        persist();
+        List<String> diffs = new ArrayList<>();
+        if (!(this.temperaturen == null)){
+            diffs = creatediff(temperaturen);
+        }
+        if (!(diffs.size() == 1 && diffs.contains("tKühlplatte"))) {
+            this.temperaturen = new Temperaturen(temperaturen);
+            parameterRepository.save(this.temperaturen);
+            persist();
+        } else {
+            this.temperaturen = new Temperaturen(temperaturen);
+        }
     }
 
     @Override
@@ -146,7 +153,7 @@ public class PersistenceService implements PropertyChangeObserver {
 
     }
 
-    private void persist(){
+    private void persist() {
         /*
         System.out.println(anlagenparameterInitialized);
         System.out.println(kalanderInitialized);
@@ -157,16 +164,16 @@ public class PersistenceService implements PropertyChangeObserver {
         System.out.println(aufwicklerInitialized);
         System.out.println();
         */
-        if(
+        if (
                 anlagenparameterInitialized
-                && kalanderInitialized
-                && prepregeigenschaftenInitialized
-                && temperaturenInitialized
-                && zugspannungenInitialized
-                && zugstationInitialized
-                && aufwicklerInitialized
-                && materialienInitialized
-                ){
+                        && kalanderInitialized
+                        && prepregeigenschaftenInitialized
+                        && temperaturenInitialized
+                        && zugspannungenInitialized
+                        && zugstationInitialized
+                        && aufwicklerInitialized
+                        && materialienInitialized
+                ) {
             parameterRepository.save(this.prepregeigenschaften);
 
             Versuch v = new Versuch();
@@ -186,5 +193,20 @@ public class PersistenceService implements PropertyChangeObserver {
             //versuchsreiheRepository.save(versuchsreihe);
             versuchRepository.save(v);
         }
+    }
+
+    public List<String> creatediff(Temperaturen t) {
+        List<String> diffs = new ArrayList<>();
+        Field[] fields = t.getClass().getFields();
+        for (Field f : fields) {
+            try {
+                if (!f.get(t).equals(f.get(this.temperaturen))) {
+                    diffs.add(f.getName());
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return diffs;
     }
 }

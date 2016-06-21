@@ -4,9 +4,15 @@ package de.fraas.prepregdatatracker.threads;
 import de.fraas.prepregdatatracker.data.beans.*;
 import de.fraas.prepregdatatracker.driver.S7Serializer;
 import de.fraas.prepregdatatracker.driver.utils.ObserverManager;
+import de.fraas.prepregdatatracker.services.ConfigurationService;
+import de.fraas.prepregdatatracker.services.ConnectionService;
+import io.rudin.s7connector.exception.S7Exception;
+import io.rudin.s7connector.impl.S7Connector;
+import io.rudin.s7connector.impl.S7TCPConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 /**
@@ -17,31 +23,12 @@ import java.util.Optional;
 public class ReaderThread extends Thread {
 
     @Autowired
-    private S7Serializer s7Serializer;
+    private ConfigurationService configurationService;
 
     @Autowired
     private DataBean dataBean;
 
-    @Autowired
-    private Anlagenparameter anlagenparameter;
-
-    @Autowired
-    private Kalander kalander;
-
-    @Autowired
-    private Prepregeigenschaften prepregeigenschaften;
-
-    @Autowired
-    private Temperaturen temperaturen;
-
-    @Autowired
-    private Zugspannungen zugspannungen;
-
-    @Autowired
-    private Zugstation zugstation;
-
-    @Autowired
-    private Aufwickler aufwickler;
+    private io.rudin.s7connector.bean.S7Serializer s7Serializer;
 
     private boolean isPaused = false;
 
@@ -56,52 +43,7 @@ public class ReaderThread extends Thread {
         }
     }
 
-    /*
-    public ReaderThread(S7Serializer serializer) {
-        this.s = serializer;
-    }
-    */
-
-    public void setSerializer(S7Serializer s){
-        this.s7Serializer = s;
-    }
-
-    public void setDataBean(DataBean dataBean) {
-        this.dataBean = dataBean;
-    }
-
     public void run() {
-
-    // System.out.println(s);
-
-        this.anlagenparameter = s7Serializer.dispense(Anlagenparameter.class, 204, 0);
-        dataBean.merge(this.anlagenparameter);
-        ObserverManager.notifyAllObservers(dataBean.getAnlagenparameter());
-
-        this.kalander = s7Serializer.dispense(Kalander.class, 204, 0);
-        dataBean.merge(this.kalander);
-        ObserverManager.notifyAllObservers(dataBean.getKalander());
-
-        this.prepregeigenschaften = s7Serializer.dispense(Prepregeigenschaften.class, 204, 0);
-        dataBean.merge(this.prepregeigenschaften);
-        ObserverManager.notifyAllObservers(dataBean.getPrepregeigenschaften());
-
-        this.temperaturen = s7Serializer.dispense(Temperaturen.class, 204, 0);
-        dataBean.merge(this.temperaturen);
-        ObserverManager.notifyAllObservers(dataBean.getTemperaturen());
-
-        this.zugspannungen = s7Serializer.dispense(Zugspannungen.class, 204, 0);
-        dataBean.merge(this.zugspannungen);
-        ObserverManager.notifyAllObservers(dataBean.getZugspannungen());
-
-        this.zugstation = s7Serializer.dispense(Zugstation.class, 204, 0);
-        dataBean.merge(this.zugstation);
-        ObserverManager.notifyAllObservers(dataBean.getZugstation());
-
-        this.aufwickler = s7Serializer.dispense(Aufwickler.class, 204, 0);
-        dataBean.merge(this.aufwickler);
-        ObserverManager.notifyAllObservers(dataBean.getAufwickler());
-
 
         while (!Thread.currentThread().isInterrupted()) {
 
@@ -116,65 +58,69 @@ public class ReaderThread extends Thread {
             }
 
             try {
-                Optional<Anlagenparameter> anlagenparameterOptional = s7Serializer.update(anlagenparameter, 204, 0);
-                if (anlagenparameterOptional.isPresent()) {
-                    System.out.println("Anlagenparameter wurde geupdated!");
-                    this.anlagenparameter = anlagenparameterOptional.get();
-                    dataBean.merge(this.anlagenparameter);
-                    ObserverManager.notifyAllObservers(dataBean.getAnlagenparameter());
+
+
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Anlagenparameter anlagenparameter = this.s7Serializer.dispense(Anlagenparameter.class, 204, 0);
+                    dataBean.merge(anlagenparameter);
                 }
 
-                Optional<Kalander> kalanderOptional = s7Serializer.update(kalander, 204, 0);
-                if (kalanderOptional.isPresent()) {
-                    System.out.println("Kalander wurde geupdated!");
-                    this.kalander = kalanderOptional.get();
-                    dataBean.merge(this.kalander);
-                    ObserverManager.notifyAllObservers(dataBean.getKalander());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Kalander kalander = this.s7Serializer.dispense(Kalander.class, 204, 0);
+                    dataBean.merge(kalander);
                 }
 
-                Optional<Prepregeigenschaften> prepregeigenschaftenOptional = s7Serializer.update(prepregeigenschaften, 204, 0);
-                if (prepregeigenschaftenOptional.isPresent()) {
-                    System.out.println("Prepregeigenschaften wurde geupdated!");
-                    this.prepregeigenschaften = prepregeigenschaftenOptional.get();
-                    dataBean.merge(this.prepregeigenschaften);
-                    ObserverManager.notifyAllObservers(dataBean.getPrepregeigenschaften());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Prepregeigenschaften prepregeigenschaften = s7Serializer.dispense(Prepregeigenschaften.class, 204, 0);
+                    dataBean.merge(prepregeigenschaften);
                 }
 
-                Optional<Temperaturen> temperaturenOptional = s7Serializer.update(temperaturen, 204, 0);
-                if (temperaturenOptional.isPresent()) {
-                    System.out.println("Temperaturen wurde geupdated!");
-                    this.temperaturen = temperaturenOptional.get();
-                    dataBean.merge(this.temperaturen);
-                    ObserverManager.notifyAllObservers(dataBean.getTemperaturen());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Temperaturen temperaturen = s7Serializer.dispense(Temperaturen.class, 204, 0);
+                    dataBean.merge(temperaturen);
                 }
 
-                Optional<Zugspannungen> zugspannungenOptional = s7Serializer.update(zugspannungen, 204, 0);
-                if (zugspannungenOptional.isPresent()) {
-                    System.out.println("Zugspannungen wurde geupdated!");
-                    this.zugspannungen = zugspannungenOptional.get();
-                    dataBean.merge(this.zugspannungen);
-                    ObserverManager.notifyAllObservers(dataBean.getZugspannungen());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Zugspannungen zugspannungen = s7Serializer.dispense(Zugspannungen.class, 204, 0);
+                    dataBean.merge(zugspannungen);
                 }
 
-                Optional<Zugstation> zugstationOptional = s7Serializer.update(zugstation, 204, 0);
-                if (zugspannungenOptional.isPresent()) {
-                    System.out.println("Zugstation wurde geupdated!");
-                    this.zugstation = zugstationOptional.get();
-                    dataBean.merge(this.zugstation);
-                    ObserverManager.notifyAllObservers(dataBean.getZugstation());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Zugstation zugstation = s7Serializer.dispense(Zugstation.class, 204, 0);
+                    dataBean.merge(zugstation);
                 }
 
-                Optional<Aufwickler> aufwicklerOptional = s7Serializer.update(aufwickler, 204, 0);
-                if (aufwicklerOptional.isPresent()) {
-                    System.out.println("Aufwickler wurde geupdated!");
-                    this.aufwickler = aufwicklerOptional.get();
-                    dataBean.merge(this.zugstation);
-                    ObserverManager.notifyAllObservers(dataBean.getAufwickler());
+                try (
+                        S7Connector connector = new S7TCPConnection(configurationService.getIp());
+                        ) {
+                    this.s7Serializer = new io.rudin.s7connector.bean.S7Serializer(connector);
+                    Aufwickler aufwickler = s7Serializer.dispense(Aufwickler.class, 204, 0);
+                    dataBean.merge(aufwickler);
                 }
+
 
             } catch (Exception e){
                 System.out.println("EXCEPTION");
-                //e.printStackTrace();
+                e.printStackTrace();
+                run();
             }
 
         }
@@ -184,5 +130,6 @@ public class ReaderThread extends Thread {
         return;
 
     }
+
 
 }

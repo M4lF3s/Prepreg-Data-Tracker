@@ -75,11 +75,11 @@
         </dependency>
 
         <!-- S7Connector -->
-        <dependency>
-            <artifactId>s7connector</artifactId>
-            <groupId>io.rudin.s7connector</groupId>
-            <version>1.0</version>
-        </dependency>
+		<dependency>
+			<groupId>io.rudin.s7connector</groupId>
+			<artifactId>s7connector</artifactId>
+			<version>1.1</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

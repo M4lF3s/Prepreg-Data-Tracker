@@ -306,8 +306,8 @@ public class ExportService {
 
         int i = 0;
         for(Tabledata d : tabledata){
-            System.out.println(d.getChecked());
-            if(d.getChecked()){
+            //System.out.println(d.getChecked());
+            //if(d.getChecked()){
                 sheet.getRow(9).getCell(3+i).setCellValue(d.getVnr());
 
                 sheet.getRow(14).getCell(3+i).setCellValue(this.anlagenparameter.getSpalthöhe());   // Spalthöhe
@@ -350,7 +350,7 @@ public class ExportService {
                 sheet.getRow(45).getCell(3+i).setCellValue(d.getLaufmeter());                               // Laufmeter
 
                 i++;
-            }
+            //}
         }
         String excelFileName = "Data Export.xlsx";
         FileOutputStream fileOut = new FileOutputStream(excelFileName);

@@ -127,12 +127,12 @@ public class MainWindowController implements Initializable {
             person.setName(txtPerson.getText());
             versuchsreihe.setPerson(person);
             versuchsreihe.setVersuchsanlage(txtAnlage.getText());
-            startController.read();
             lblStart.setText("Reading");
             lblStart.setTextFill(Paint.valueOf("GREEN"));
             btnStart.setText("STOP");
 
             if(!readerThread.isAlive()){
+                startController.read();
                 readerThread.start();
             } else {
                 readerThread.setPaused(false);

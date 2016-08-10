@@ -5,7 +5,7 @@
 
 	<groupId>de.fraas.prepregdatatracker</groupId>
 	<artifactId>prepregdatatracker</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-RC</version>
 	<packaging>jar</packaging>
 
 	<name>Prepreg Data Tracker</name>
@@ -98,6 +98,25 @@
                     <outputChangeLogFile>src/main/resources/db/changelog/db.changelog-${maven.build.timestamp}.xml</outputChangeLogFile>
                 </configuration>
             </plugin>
+
+			<plugin>
+				<groupId>sh.tak.appbundler</groupId>
+				<artifactId>appbundle-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<mainClass>de.fraas.prepregdatatracker.boot.PrepregDataTrackerApplication</mainClass>
+					<iconFile>icon.icns</iconFile>
+					<jrePath>/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk</jrePath>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	

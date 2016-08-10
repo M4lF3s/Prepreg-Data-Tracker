@@ -154,16 +154,16 @@ public class PersistenceService implements PropertyChangeObserver {
     }
 
     private void persist() {
-        /*
+
         System.out.println(anlagenparameterInitialized);
         System.out.println(kalanderInitialized);
-        System.out.println(prepregeigenschaftenInitialized);
-        System.out.println(temperaturenInitialized);
+        System.out.println(prepregeigenschaftenInitialized); //
+        System.out.println(temperaturenInitialized); //
         System.out.println(zugspannungenInitialized);
         System.out.println(zugstationInitialized);
-        System.out.println(aufwicklerInitialized);
+        System.out.println(aufwicklerInitialized); //
         System.out.println();
-        */
+
         if (
                 anlagenparameterInitialized
                         && kalanderInitialized

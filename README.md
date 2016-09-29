@@ -26,7 +26,7 @@ This issue can be solved by creating a Software that connects to the Prepreg-Pla
 
 ### Overview
 
- ![Bildschirmfoto 2016-09-29 um 11.09.03](/Users/Masi/Desktop/Bildschirmfoto 2016-09-29 um 11.09.03.png)
+ ![Bildschirmfoto 2016-09-29 um 11.09.03](img/Bildschirmfoto 2016-09-29 um 11.09.03.png)
 
 
 

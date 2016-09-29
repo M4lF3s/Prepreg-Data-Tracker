@@ -353,7 +353,7 @@ public class ExportService {
             //}
         }
         String excelFileName = "Data Export.xlsx";
-        FileOutputStream fileOut = new FileOutputStream(excelFileName);
+        FileOutputStream fileOut = new FileOutputStream("../"+excelFileName);
         wb.write(fileOut);
         fileOut.flush();
         fileOut.close();

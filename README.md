@@ -68,15 +68,14 @@ This issue can be solved by creating a Software that connects to the Prepreg-Pla
 
 ### Use-Cases
 
- ![Bildschirmfoto 2016-09-29 um 11.25.06](/Users/Masi/Desktop/Bildschirmfoto 2016-09-29 um 11.25.06.png)
+ ![Bildschirmfoto 2016-09-29 um 11.25.06](img/Bildschirmfoto 2016-09-29 um 11.25.06.png)
 
 
 
 ### Frontend-Layout
 
- ![Bildschirmfoto 2016-09-29 um 11.26.07](/Users/Masi/Desktop/Bildschirmfoto 2016-09-29 um 11.26.07.png)
+ ![Bildschirmfoto 2016-09-29 um 11.26.07](img/Bildschirmfoto 2016-09-29 um 11.26.07.png)
 
- ![Bildschirmfoto 2016-09-29 um 11.26.30](/Users/Masi/Desktop/Bildschirmfoto 2016-09-29 um 11.26.30.png)
+ ![Bildschirmfoto 2016-09-29 um 11.26.30](img/Bildschirmfoto 2016-09-29 um 11.26.30.png)
 
- ![Bildschirmfoto 2016-09-29 um 11.26.57](/Users/Masi/Desktop/Bildschirmfoto 2016-09-29 um 11.26.57.png)
-
+ ![Bildschirmfoto 2016-09-29 um 11.26.57](img/Bildschirmfoto 2016-09-29 um 11.26.57.png)
